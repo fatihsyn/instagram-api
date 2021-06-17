@@ -425,3 +425,168 @@ $ig->direct->sendDisappearingPhoto([
     'users' => ['user_id']
 ], $photo);
 ```
+
+To post hashtags
+```sh
+echo $ig->direct->sendHashtag(
+    ['users' => ['user_id']],
+    'tagdgtl'
+);
+```
+To submit a location
+```sh
+echo $ig->direct->sendLocation(
+    ['users' => ['user_id']],
+    'lokasyon_id'
+);
+```
+To submit a user profile
+```sh
+echo $ig->direct->sendProfile(
+    ['users' => ['user_id']],
+    'user_id' // mesajlaştığın kişiye göndereceğin kullanıcı
+);
+```
+To delete a message you wrote
+```sh
+echo $ig->direct->deleteItem('thread_id', 'mesaj_id');
+```
+#Story
+To add a photo to the story
+```sh
+$photo = __DIR__ . '/instagram.jpg';
+$metadata = [
+    'caption' => '#eskişehir bu story api ile gönderildi',
+    'hashtags' => [
+        [
+            'tag_name'         => 'eskişehir',
+            'x'                => 0.5,
+            'y'                => 0.5,
+            'width'            => 0.24305555,
+            'height'           => 0.07347973,
+            'rotation'         => 0.0,
+            'is_sticker'       => false,
+            'use_custom_title' => false
+        ]
+    ]
+];
+
+$photo = new \InstagramAPI\Media\Photo\InstagramPhoto($photo, ['targetFeed' => \InstagramAPI\Constants::FEED_STORY]);
+echo $ig->story->uploadPhoto($photo->getFile(), $metadata);
+```
+To add a video to the story
+```sh
+\InstagramAPI\Media\Video\FFmpeg::$defaultBinary = '/usr/local/bin/ffmpeg';
+\InstagramAPI\Utils::$ffprobeBin = '/usr/local/bin/ffprobe';
+
+$video = __DIR__ . '/cplAZjZmjWRNtYya3pqZAfcnMsZ4P8K.mov';
+$metadata = [
+    'caption' => '#eskişehir bu story api ile gönderildi',
+    'hashtags' => [
+        [
+            'tag_name'         => 'eskişehir',
+            'x'                => 0.5,
+            'y'                => 0.5,
+            'width'            => 0.24305555,
+            'height'           => 0.07347973,
+            'rotation'         => 0.0,
+            'is_sticker'       => false,
+            'use_custom_title' => false
+        ]
+    ]
+];
+
+$video = new \InstagramAPI\Media\Video\InstagramVideo($video, ['targetFeed' => \InstagramAPI\Constants::FEED_STORY]);
+echo $ig->story->uploadVideo($video->getFile(), $metadata);
+```
+To see the stories of your followers
+```sh
+echo $ig->story->getReelsTrayFeed();
+```
+To see the user's stories
+```sh
+echo $ig->story->getUserReelMediaFeed('user_id');
+```
+Join the live broadcast
+```sh
+echo $ig->story->getUserStoryFeed('1957285393');
+```
+To see the stories of multiple users
+```sh
+echo $ig->story->getReelsMediaFeed(['user_id', 'user_id2']);
+```
+To list archived stories
+```sh
+echo $ig->story->getArchivedStoriesFeed();
+```
+to see the details of the archived story
+```sh
+echo $ig->story->getReelsMediaFeed(['archiveDay:XXX']);
+```
+To list users who viewed the story
+```sh
+echo $ig->story->getStoryItemViewers('story_id');
+```
+View and change story sharing settings
+```sh
+echo $ig->story->getReelSettings();
+```
+To hide the story
+```sh
+echo $ig->people->blockMyStory('user_id');
+echo $ig->people->unblockMyStory('user_id');
+```
+#Discover
+To list the Discover feed
+```sh
+echo $ig->discover->getExploreFeed();
+```
+To search for users, tags and locations
+```sh
+echo $ig->discover->search('eskişehir');
+```
+To find suggested users, tags, and locations
+```sh
+echo $ig->discover->getSuggestedSearches('users');
+echo $ig->discover->getSuggestedSearches('hashtags');
+echo $ig->discover->getSuggestedSearches('places');
+```
+To list recent calls and clear call history
+```sh
+echo $ig->discover->getRecentSearches();
+echo $ig->discover->clearSearchHistory()
+```
+#Hashtag
+To view the label detail
+```sh
+echo $ig->hashtag->getInfo('eskişehir');
+```
+To view the stories for the tag
+```sh
+echo $ig->hashtag->getStory('eskişehir');
+```
+To search in tags
+```sh
+echo $ig->hashtag->search('eskişehir');
+```
+To follow/unfollow the tag
+```sh
+echo $ig->hashtag->follow('eskişehir');
+echo $ig->hashtag->unfollow('eskişehir');
+```
+To find associated tags
+```sh
+echo $ig->hashtag->getRelated('php');
+```
+To list the shares belonging to the tag
+```sh
+echo $ig->hashtag->getFeed('codeigniter', \InstagramAPI\Signatures::generateUUID());
+```
+To list the tags the user is following
+```sh
+echo $ig->hashtag->getSelfFollowing(); //For the relevant user
+echo $ig->hashtag->getFollowing('user_id'); //For different user
+Tag tracking suggestions
+```sh
+echo $ig->hashtag->getFollowSuggestions();
+```
