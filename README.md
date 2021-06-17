@@ -257,55 +257,96 @@ echo $ig->media->getSavedFeed();
 ```
 # User
 
+To get user details
+```sh
+echo $ig->people->getInfoById('user_id');
+echo $ig->people->getInfoByName('user_adi');
+echo $ig->people->getSelfInfo();
+```
+User listing by algorithm
+```sh
+echo $ig->people->getBootstrapUsers();
+```
+To list follow requests
+```sh
+echo $ig->people->getPendingFriendships();
+```
+Accept / Do Not Accept Followers
+```sh
+echo $ig->people->approveFriendship('user_id');
+echo $ig->people->rejectFriendship('user_id');
+```
+delete followers
+```sh
+echo $ig->people->removeFollower('user_id');
+```
+To list your followers
+```sh
+echo $ig->people->getFollowing('user_id', \InstagramAPI\Signatures::generateUUID());
+echo $ig->people->getSelfFollowing(\InstagramAPI\Signatures::generateUUID());
+```
+To list your followers
+```sh
+echo $ig->people->getFollowers('user_id', \InstagramAPI\Signatures::generateUUID());
+echo $ig->people->getSelfFollowers(\InstagramAPI\Signatures::generateUUID());
+```
+User Search
+```sh
+echo $ig->people->search('fatihsyn');
+```
+Discover users
+```sh
+echo $ig->people->discoverPeople();
+```
+List suggested followers
+```sh
+echo $ig->people->getSuggestedUsers('user_id');
+```
+User follow / unfollow
+```sh
+echo $ig->people->follow('user_id');
+echo $ig->people->unfollow('user_id');
+```
 
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
+
 ```sh
 ```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
-```sh
-```
+
 ```sh
 ```
 
