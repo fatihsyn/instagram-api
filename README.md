@@ -387,3 +387,41 @@ $ig->direct->sendPhoto([
     'thread' => $thread_id
 ], $photo);
 ```
+To send a disappearing photo to the group
+```sh
+$photo = 'img/photo.jpg';
+$thread_id = 'group_id';
+$ig->direct->sendDisappearingPhoto([
+    'thread' => $thread_id
+], $photo);
+```
+To mute or unmute the group
+```sh
+echo $ig->direct->muteThread('thread_id');
+echo $ig->direct->unmuteThread('thread_id');
+```
+To leave the group
+```sh
+echo $ig->direct->leaveThread('thread_id');
+```
+To send a message to one or more users
+```sh
+$msg = 'Test Message';
+$ig->direct->sendText([
+    'users' => ['user_id']
+], $msg);
+```
+To send a photo
+```sh
+$photo ='fotoğraf yolu';
+$ig->direct->sendPhoto([
+    'users' => ['user_id']
+], $photo);
+```
+To send a lost photo
+```sh
+$photo = 'fotoğraf yolu';
+$ig->direct->sendDisappearingPhoto([
+    'users' => ['user_id']
+], $photo);
+```
