@@ -373,7 +373,7 @@ echo $ig->direct->addUsersToThread('thread_id', ['user_id']);
 ```
 To send a message to the group
 ```
-$thread_id = 'grup idsi';
+$thread_id = 'group_id';
 $msg = 'Test message!';
 $ig->direct->sendText([
     'thread' => $thread_id
@@ -413,7 +413,7 @@ $ig->direct->sendText([
 ```
 To send a photo
 ```sh
-$photo ='fotoğraf yolu';
+$photo ='img/photo.jpg';
 $ig->direct->sendPhoto([
     'users' => ['user_id']
 ], $photo);
@@ -444,7 +444,7 @@ To submit a user profile
 ```sh
 echo $ig->direct->sendProfile(
     ['users' => ['user_id']],
-    'user_id' // mesajlaştığın kişiye göndereceğin kullanıcı
+    'user_id'
 );
 ```
 To delete a message you wrote
@@ -459,7 +459,7 @@ $metadata = [
     'caption' => '#eskişehir bu story api ile gönderildi',
     'hashtags' => [
         [
-            'tag_name'         => 'eskişehir',
+            'tag_name'         => 'fatihsyn',
             'x'                => 0.5,
             'y'                => 0.5,
             'width'            => 0.24305555,
@@ -481,13 +481,13 @@ To add a video to the story
 
 $video = __DIR__ . '/cplAZjZmjWRNtYya3pqZAfcnMsZ4P8K.mov';
 $metadata = [
-    'caption' => '#eskişehir bu story api ile gönderildi',
+    'caption' => '#fatihsyn story api',
     'hashtags' => [
         [
-            'tag_name'         => 'eskişehir',
-            'x'                => 0.5,
-            'y'                => 0.5,
-            'width'            => 0.24305555,
+            'tag_name'         => 'fatihsyn',
+            'x'                => 0.4,
+            'y'                => 0.8,
+            'width'            => 0.21305555,
             'height'           => 0.07347973,
             'rotation'         => 0.0,
             'is_sticker'       => false,
@@ -509,7 +509,7 @@ echo $ig->story->getUserReelMediaFeed('user_id');
 ```
 Join the live broadcast
 ```sh
-echo $ig->story->getUserStoryFeed('1957285393');
+echo $ig->story->getUserStoryFeed('123123123123');
 ```
 To see the stories of multiple users
 ```sh
@@ -543,7 +543,7 @@ echo $ig->discover->getExploreFeed();
 ```
 To search for users, tags and locations
 ```sh
-echo $ig->discover->search('eskişehir');
+echo $ig->discover->search('fatihsyn');
 ```
 To find suggested users, tags, and locations
 ```sh
@@ -559,20 +559,20 @@ echo $ig->discover->clearSearchHistory()
 #Hashtag
 To view the label detail
 ```sh
-echo $ig->hashtag->getInfo('eskişehir');
+echo $ig->hashtag->getInfo('fatihsyn');
 ```
 To view the stories for the tag
 ```sh
-echo $ig->hashtag->getStory('eskişehir');
+echo $ig->hashtag->getStory('fatihsyn');
 ```
 To search in tags
 ```sh
-echo $ig->hashtag->search('eskişehir');
+echo $ig->hashtag->search('fatihsyn');
 ```
 To follow/unfollow the tag
 ```sh
-echo $ig->hashtag->follow('eskişehir');
-echo $ig->hashtag->unfollow('eskişehir');
+echo $ig->hashtag->follow('fatihsyn');
+echo $ig->hashtag->unfollow('fatihsyn');
 ```
 To find associated tags
 ```sh
