@@ -308,47 +308,82 @@ echo $ig->people->follow('user_id');
 echo $ig->people->unfollow('user_id');
 ```
 
+----
+
+To add the user to favorites
 ```sh
+echo $ig->people->favorite('user_id');
+echo $ig->people->unfavorite('user_id');
 ```
-
+To be notified when the user posts a Story
 ```sh
+echo $ig->people->favoriteForStories('user_id');
+echo $ig->people->unfavoriteForStories('user_id');
 ```
-
+To report a user as spam
 ```sh
+echo $ig->people->report('user_id');
 ```
-
+To block / unlock a users account
 ```sh
+echo $ig->people->block('user_id');
+echo $ig->people->unblock('user_id');
 ```
-
+To hide or show media and stories shared by a user
 ```sh
+echo $ig->people->muteUserMedia('user_id', 'story|post|all');
+echo $ig->people->unmuteUserMedia('user_id', 'story|post|all');
 ```
-
+For a list of people you ve blocked
 ```sh
+echo $ig->people->getBlockedList()
 ```
-
+To block or unblock someone you dont want to see the stories you share
 ```sh
+echo $ig->people->blockMyStory('user_id');
+echo $ig->people->unblockMyStory('user_id');
 ```
-
+To list users who have been blocked from seeing the story
 ```sh
+echo $ig->people->getBlockedStoryList();
 ```
-
+To hide or show your friend s stories
 ```sh
+echo $ig->people->muteFriendStory('user_id');
+echo $ig->people->unmuteFriendStory('user_id');
 ```
-
+Mesaj (Direct) İşlemleri
+List recent messages
 ```sh
+echo $ig->direct->getInbox();
 ```
-
+To get message details
 ```sh
+echo $ig->direct->getThread('340282366841710300949128217702782372541');
 ```
-
+To set up a message group
 ```sh
+$userIds =['user_id', 'user_id2']; 
+$groupTitle = 'Fatih SAYIN Group';
+echo $ig->direct->createGroupThread($userIds, $groupTitle);
 ```
-
+To add a new user to the group
 ```sh
+echo $ig->direct->addUsersToThread('thread_id', ['user_id']);
 ```
-
+To send a message to the group
+```
+$thread_id = 'grup idsi';
+$msg = 'Test message!';
+$ig->direct->sendText([
+    'thread' => $thread_id
+], $msg);
+```
+To send a photo to the group
 ```sh
+$thread_id = 'group_id';
+$photo = 'img/images.jpg';
+$ig->direct->sendPhoto([
+    'thread' => $thread_id
+], $photo);
 ```
-
-
-
