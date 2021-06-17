@@ -164,18 +164,149 @@ To back up account contents
 echo $ig->timeline->backup('yedek klasör yolu');
 ```
 # Media
+To get details of a shared content
 
 ```sh
+echo $ig->media->getInfo('medya_id');
+```
+To delete a shared content
+
+```sh
+echo $ig->media->delete('medya_id', 'content_type'); ( PHOTO|VIDEO|ALBUM )
+```
+To edit a shared content
+
+```sh
+echo $ig->media->edit('medya_id', 'new statement');
 
 ```
-
+Like / Unlike
 
 ```sh
+echo $ig->media->like('medya_id');
+echo $ig->media->unlike('medya_id');
+```
+To list liked content
+```sh
+echo $ig->media->getLikedFeed();
+```
+To get the likes list of the content
 
+```sh
+echo $ig->media->getLikers('medya_id');
 ```
 
-```sh
+Enable / disable comments for shared content
 
+```sh
+echo $ig->media->enableComments('medya_id');
+echo $ig->media->disableComments('medya_id');
+```
+To get the comments list of the content
+
+```sh
+echo $ig->media->getComments('medya_id');
+```
+
+to comment
+```sh
+echo $ig->media->comment('medya_id', 'comment');
+```
+To reply to a comment
+
+```sh
+$ig->media->comment('medya_id', '@username text', 'comment_id')
+```
+
+To get the comment replies list of the content
+
+```sh
+echo $ig->media->getCommentReplies('medya_id', 'yorum_id')
+
+```
+Delete comment
+
+```sh
+echo $ig->media->deleteComment('medya_id', 'comment_id');
+
+echo $ig->media->deleteComments('medya_id', ['comment_id1', 'comment_id2']);
+```
+Comment Like / Unlike
+
+```sh
+echo $ig->media->likeComment('Comment_id');
+echo $ig->media->unlikeComment('Comment_id');
+```
+
+To get the comment like list 
+
+```sh
+echo $ig->media->getCommentLikers('yorum_id');
+
+```
+Content Save / UnSave
+
+```sh
+echo $ig->media->save('medya_id');
+echo $ig->media->unsave('medya_id');
+```
+To list recorded content
+
+```sh
+echo $ig->media->getSavedFeed();
+```
+# User
+
+
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
+```
+```sh
 ```
 
 
