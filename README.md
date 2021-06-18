@@ -456,7 +456,7 @@ To add a photo to the story
 ```sh
 $photo = __DIR__ . '/instagram.jpg';
 $metadata = [
-    'caption' => '#eskişehir bu story api ile gönderildi',
+    'caption' => '#fatihsayincom api',
     'hashtags' => [
         [
             'tag_name'         => 'fatihsyn',
